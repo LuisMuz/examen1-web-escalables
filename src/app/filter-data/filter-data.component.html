@@ -1,0 +1,15 @@
+<div class="flex">
+  <div class="form-group">
+    <label for="inputOrder">Order by</label>
+    <select class="form-control" id="inputOrder" [(ngModel)]="filter" (change)="onChangeFilter.emit(filter)">
+      <option value="name">Name</option>
+      <option value="year">Year</option>
+    </select>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" (change)="changeOrder()">
+    <label class="form-check-label" for="exampleRadios2">
+      Invert
+    </label>
+  </div>
+</div>

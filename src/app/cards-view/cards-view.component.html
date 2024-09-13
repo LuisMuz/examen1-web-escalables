@@ -1,0 +1,13 @@
+<div class="card" style="width: 18rem;" [ngClass]="{'selected': is_selected}">
+  <img src={{show.image}} class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title">{{show.name}}</h5>
+    <p class="card-text">{{show.description}}</p>
+    <p class="card-text">{{show.year}}</p>
+  </div>
+  <div class="button-grid">
+    <a *ngIf="show.episodes > 0" href="#" (click)="changeSelected()" class="btn btn-primary">Go there</a>
+    <button (click)="editCardDetails()" class="btn btn-primary">Edit</button>
+    <a href="#" (click)="deleteCard.emit()" class="btn btn-primary">Delete</a>
+  </div>
+</div>
