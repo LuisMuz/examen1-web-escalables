@@ -1,49 +1,16 @@
 <div class="bg">
   <div class="container">
-    <h1 class="center">Shows</h1>
-    <div class="header">
-      <app-create-card (createCard)="createElement($event)">
-      </app-create-card>
-      <app-filter-data 
-      (onChangeFilter)="changeFilter($event)"
-      (onChangeOrder)="changeOrder()"
-      class="filter-box">
-      </app-filter-data>
+    <button class="toggle-btn" (click)="toggleSidebar()">&#9776;</button>
+
+    <div class="sidebar" *ngIf="isSidebarOpen">
+      <ul>
+        <li><a [routerLink]="['/home']" (click)="navigate('home')" [class.active]="currentPage === 'home'">Home</a></li>
+        <li><a [routerLink]="['/tvshows']" (click)="navigate('tvshows')" [class.active]="currentPage === 'tvshows'">TV Shows</a></li>
+      </ul>
     </div>
 
-    <div *ngIf="showToEdit">
-      <h3>Editar Show</h3>
-      <form [formGroup]="editForm" (ngSubmit)="onSubmitEdit()">
-        <div class="form-group">
-          <label for="name">Nombre</label>
-          <input id="name" class="form-control" formControlName="name">
-        </div>
-        <div class="form-group">
-          <label for="year">Año</label>
-          <input id="year" class="form-control" formControlName="year">
-        </div>
-        <div class="form-group">
-          <label for="episodes">Episodios</label>
-          <input id="episodes" class="form-control" formControlName="episodes">
-        </div>
-        <div class="form-group">
-          <label for="description">Descripción</label>
-          <textarea id="description" class="form-control" formControlName="description"></textarea>
-        </div>
-        <div class="btn-group">
-          <button class="btn btn-primary" type="submit">Guardar cambios</button>
-          <button class="btn btn-secondary" type="button" (click)="cancelEdit()">Cancelar</button>
-        </div>
-      </form>
-    </div>
-
-    <div *ngIf="!showToEdit">
-      <div class="container d-flex">
-        <app-cards-view *ngFor="let show of shows" [show]="show" 
-          (deleteCard)="deleteCard(show.name)" 
-          (editCard)="loadShowToEdit($event)">
-        </app-cards-view>
-      </div>
+    <div class="content" [class.expanded]="!isSidebarOpen">
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

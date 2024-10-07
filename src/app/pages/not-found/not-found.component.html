@@ -1,0 +1,39 @@
+<div class="not-found-container">
+  <h1>404</h1>
+  <h2>¡Página no encontrada!</h2>
+  <p>Mientras vuelves al camino correcto, ¿cuántos objetivos puedes atrapar en un minuto?</p>
+  
+  <div class="game-container">
+    <div class="game-info">
+      <p>Puntos: {{ score }}</p>
+      <p>Mejor: {{ highScore }}</p>
+      <p class="timer" *ngIf="isGameStarted">{{ formatTime(timeLeft) }}</p>
+    </div>
+    
+    <div class="game-area" [class.active]="isGameStarted">
+      <div class="target" 
+           *ngIf="isGameStarted"
+           [style.left.%]="targetPosition.x"
+           [style.top.%]="targetPosition.y"
+           (click)="onTargetClick()">
+        🎯
+      </div>
+
+      <div *ngIf="!isGameStarted && !gameOver" class="start-screen">
+        <button (click)="startGame()" class="start-button">
+          Comenzar Juego
+        </button>
+      </div>
+
+      <div *ngIf="gameOver" class="game-over">
+        <h3>¡Tiempo Terminado!</h3>
+        <p>Tu puntuación final: {{ score }}</p>
+        <button (click)="startGame()" class="start-button">
+          Jugar de nuevo
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <button [routerLink]="['/home']" routerLinkActive="router-link-active"  class="home-button">Volver al inicio</button>
+</div>

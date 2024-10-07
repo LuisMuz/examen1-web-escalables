@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Show } from '../model/show';
+import { Show } from '../../model/show';
 
 @Component({
   selector: 'app-cards-view',

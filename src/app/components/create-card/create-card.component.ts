@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Form, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators, NgForm } from '@angular/forms';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
-import { Show } from '../model/show';
+import { Show } from '../../model/show';
 
 @Component({
   selector: 'app-create-card',
