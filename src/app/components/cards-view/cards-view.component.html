@@ -6,8 +6,8 @@
     <p class="card-text">{{show.year}}</p>
   </div>
   <div class="button-grid">
-    <a *ngIf="show.episodes > 0" href="#" (click)="changeSelected()" class="btn btn-primary">Go there</a>
-    <button (click)="editCardDetails()" class="btn btn-primary">Edit</button>
-    <a href="#" (click)="deleteCard.emit()" class="btn btn-primary">Delete</a>
+    <a *ngIf="show.episodes > 0" (click)="changeSelected()" class="btn btn-primary">Go there</a>
+    <button type="button" (click)="editCardDetails()" class="btn btn-primary">Edit</button>
+    <a (click)="deleteCard.emit()" class="btn btn-primary">Delete</a>
   </div>
 </div>
